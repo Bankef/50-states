@@ -48,7 +48,10 @@ import { LMap, LTileLayer } from '@vue-leaflet/vue-leaflet'
         }).catch(err => {
           //404 not found
           if (err.response && err.response.status === 404) {
-            this.state.name = '?' //404 not found page will be my suggestion. That will prompt the user to check for spelling err
+            //404 not found page will be my suggestion. That will prompt the user to check for spelling err
+            //this.state.name = '?'
+            //catches the error or an unknown state and redirect user to the NotFound page
+            this.$router.push( { name: 'NotFound' })
           } else {
             //500 server error
             alert('Sorry, error fetching data about this state') //generic message for user

@@ -2,6 +2,8 @@
     import StateList from "@/components/StateList"; // import state list component
     import AboutSite from "@/components/AboutSite";
     import StateMap from "@/components/StateMap";
+    import StateVisited from "@/components/StateVisited";
+    import NotFound from "@/components/NotFound";
 
  export default  createRouter({ //this is where we define our router
      history: createWebHashHistory(),
@@ -20,6 +22,19 @@
              path: '/map/:state',
              name: 'StateMap',
              component: StateMap
+         },
+         {
+             path: '/mypage',
+             name: 'All visited states',
+             component: StateVisited
+         },
+         // adding 404 route
+         {
+             path: '/:pathMatch(.*)*',
+             name: 'NotFound',
+            component: NotFound
+
          }
+
      ]
  })

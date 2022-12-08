@@ -29,7 +29,7 @@ router.get('/states', function(req, res, next) {
     })
 
     //patch route to update a state - visited or not
-    // makes a request to the database for a state and set the value for visited into true or false foe each state
+    // makes a request to the database for a state and set the value for visited into true or false for each state
     router.patch('/states/:name', function(req, res, next){
         let stateName = req.params.name
         let stateVisited = req.body.visited
@@ -47,5 +47,16 @@ router.get('/states', function(req, res, next) {
             //the general error handler catches all other kind of errors including server issues
             .catch( err => next(err) )
     })
+
+        //Create an API route to get all the visited states; mypage
+    router.get('/visited', function(req,res,next){
+        States.findAll({  where: {visited: true} } ).then( states => {
+            return res.json(states)
+        })
+            // this deals with all error and pass it to a handler we will create
+            .catch( err => next (err) )
+    })
+
+
 
     module.exports = router

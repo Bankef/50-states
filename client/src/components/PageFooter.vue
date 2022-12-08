@@ -11,6 +11,10 @@
         <router-link v-bind:to="{ name: 'AboutSite' }">About this site</router-link>
      </span>
 
+      <span class="nav-link">
+        <router-link to="/mypage">All visited states</router-link>
+      </span>
+
     </div>
 
     <p>Header image by
