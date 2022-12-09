@@ -1,7 +1,13 @@
     let express = require('express')
     let states_api = require('./routes/states')
+    let path = require('path')
 
     let app = express() //creates express app
+
+    //Deploying to Azure
+    let pathToVueApp = path.join(__dirname, 'client', 'dist')
+    let vueApp = express.static(pathToVueApp)
+    app.use('/', vueApp)
 
     app.use(express.json()) // creates the new web server app
 
