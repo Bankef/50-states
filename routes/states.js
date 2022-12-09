@@ -1,5 +1,4 @@
 let express = require('express')
-const {state} = require("pg/lib/native/query");
 let States = require('../models').States
 
 let router = express.Router()
